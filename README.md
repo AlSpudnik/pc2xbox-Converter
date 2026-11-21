@@ -92,7 +92,9 @@ Copy the generated `GEOMETRY.BIN` and `TEXTURES.BIN` into the corresponding car 
 python3 pc2xbox_geo.py <GEOMETRY_pc.BIN> <GEOMETRY_android_donor.BIN> <GEOMETRY_out.BIN>
 ```
 • GEOMETRY_pc.BIN — ваш створений/відредагований GEOMETRY.BIN із Windows.
+
 • GEOMETRY_android_donor.BIN — оригінальний GEOMETRY.BIN цієї ж моделі авто з Android-версії гри (як «донор» таблиці деталей та хвоста 0x80034020).
+
 • GEOMETRY_out.BIN — готовий файл для Xbox/Android!
 
 **Приклад:**
@@ -105,6 +107,7 @@ python3 pc2xbox_geo.py FOCUS_pc_GEOMETRY.BIN FOCUS_android_GEOMETRY.BIN GEOMETRY
 python3 pc2xbox_tex.py <TEXTURES_pc.BIN> <TEXTURES_out.BIN> <TEXTURES_android_donor.BIN>
 ```
 • TEXTURES_pc.BIN — ваш створений/відредагований TEXTURES.BIN із Windows.
+
 • TEXTURES_android_donor.BIN — оригінальний TEXTURES.BIN цієї ж моделі авто з Android-версії гри (як «донор» таблиці).
 
 **Приклад:**
