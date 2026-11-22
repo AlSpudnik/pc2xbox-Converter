@@ -36,6 +36,12 @@ A lightweight, zero-dependency Python toolset to convert custom car 3D models (`
 ```bash
 python3 pc2xbox_geo.py <GEOMETRY_pc.BIN> <GEOMETRY_android_donor.BIN> <GEOMETRY_out.BIN>
 ```
+• GEOMETRY_pc.BIN — your created/edited GEOMETRY.BIN from the Windows version.
+
+• GEOMETRY_android_donor.BIN — the original GEOMETRY.BIN for the same car model from the Android version of the game (serving as a "donor" for the parts table and the 0x80034020 tail).
+
+• GEOMETRY_out.BIN — the final file, ready for Xbox/Android!
+
 **Example:**
 ```bash
 python3 pc2xbox_geo.py FOCUS_pc_GEOMETRY.BIN FOCUS_android_GEOMETRY.BIN GEOMETRY.BIN
@@ -45,6 +51,10 @@ python3 pc2xbox_geo.py FOCUS_pc_GEOMETRY.BIN FOCUS_android_GEOMETRY.BIN GEOMETRY
 ```bash
 python3 pc2xbox_tex.py <TEXTURES_pc.BIN> <TEXTURES_out.BIN> <TEXTURES_android_donor.BIN>
 ```
+• TEXTURES_pc.BIN — your created/edited TEXTURES.BIN from the Windows version.
+
+• TEXTURES_android_donor.BIN — the original TEXTURES.BIN for the same car model from the Android version of the game (serving as a "donor" for the table).
+
 **Example:**
 ```bash
 python3 pc2xbox_tex.py FOCUS_pc_TEXTURES.BIN TEXTURES.BIN FOCUS_android_TEXTURES.BIN
@@ -84,25 +94,25 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 
 ```
 Wheel Positioning (Wheelbase, Track, Height)
 
-* --fx – Front axle longitudinal position (front wheelbase, X)
-* --rx – Rear axle longitudinal position (rear wheelbase, X)
-* --y – Wheel offset (track width) for both axles simultaneously
-* --fy – Front track (front wheel offset, Y)
-* --ry – Rear track (rear wheel offset, Y)
-* --z – Vehicle ground clearance
-* --fz – Vertical height of the front wheels (Z)
-* --rz – Vertical height of the rear wheels (Z)
+* `--fx` – Front axle longitudinal position (front wheelbase, X)
+* `--rx` – Rear axle longitudinal position (rear wheelbase, X)
+* `--y` – Wheel offset (track width) for both axles simultaneously
+* `--fy` – Front track (front wheel offset, Y)
+* `--ry` – Rear track (rear wheel offset, Y)
+* `--z` – Vehicle ground clearance
+* `--fz` – Vertical height of the front wheels (Z)
+* `--rz` – Vertical height of the rear wheels (Z)
 
 Tire Width
 
-* --w – Wheel width for both axles simultaneously
-* --fw – Front wheel width
-* --rw – Rear wheel width
+* `--w` – Wheel width for both axles simultaneously
+* `--fw` – Front wheel width
+* `--rw` – Rear wheel width
 
 Wheel Diameter and Radius (applies to all 4 wheels). The engine uses this value solely to calculate the suspension height above the ground; it does not alter the scale of the 3D model of the custom wheel itself.
 
-* --d – Outer wheel diameter (D)
-* --r – Wheel radius (R, half of the diameter)
+* `--d` – Outer wheel diameter (D)
+* `--r` – Wheel radius (R, half of the diameter)
 
 All values ​​are specified in meters (for example, a width of 0.215 equals 215 mm, and a diameter of 0.620 equals 62 cm). You only need to enter the parameters you wish to change; all others will remain unchanged.
 
@@ -111,7 +121,7 @@ To make the rear wheels wider and larger in diameter (for example, for a rear-wh
 ```bash
 python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fw 0.195 --rw 0.245 --fd 0.610 --rd 0.640
 ```
-You can set the width (--w, --fw, --rw) and offset (--y, --fy, --ry) separately for the front and rear axles:
+You can set the width (`--w`, `--fw`, `--rw`) and offset (`--y`, `--fy`, `--ry`) separately for the front and rear axles:
 
 Also, please note: if you are making multiple edits in succession, for the second run you must use the already-edited `GlobalB.lzc` as the input file (you can specify the same file as both input and output), rather than the original `GlobalB_android.lzc`.
 
@@ -230,25 +240,25 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 
 ```
 Позиція коліс (база, колія, висота)
 
-* --fx - передня вісь по довжині (база вперед, X)
-* --rx - задня вісь по довжині (база назад, X)
-* --y - виліт коліс (ширина колії) одночасно для обох осей
-* --fy - передня колія (виліт передніх коліс, Y)
-* --ry - задня колія (виліт задніх коліс, Y)
-* --z - кліренс авто
-* --fz - висота передніх коліс по вертикалі (Z)
-* --rz - висота задніх коліс по вертикалі (Z)
+* `--fx` - передня вісь по довжині (база вперед, X)
+* `--rx` - задня вісь по довжині (база назад, X)
+* `--y` - виліт коліс (ширина колії) одночасно для обох осей
+* `--fy` - передня колія (виліт передніх коліс, Y)
+* `--ry` - задня колія (виліт задніх коліс, Y)
+* `--z` - кліренс авто
+* `--fz` - висота передніх коліс по вертикалі (Z)
+* `--rz` - висота задніх коліс по вертикалі (Z)
 
 Ширина покришок
 
-* --w - ширина коліс одночасно для обох осей
-* --fw - ширина передніх коліс
-* --rw - ширина задніх коліс
+* `--w` - ширина коліс одночасно для обох осей
+* `--fw` - ширина передніх коліс
+* `--rw` - ширина задніх коліс
 
 Діаметр та радіус коліс (однакові для всіх 4 коліс). Рушій використовує це число лише для розрахунку висоти підвіски над дорогою, не змінюючи масштаб самої 3D-моделі тюнінгованого колеса
 
-* --d - зовнішній діаметр коліс (D).
-* --r - радіус коліс (R, половина діаметра)
+* `--d` - зовнішній діаметр коліс (D).
+* `--r` - радіус коліс (R, половина діаметра)
 
 Усі значення вказуються в метрах (наприклад, ширина 0.215 — це 215 мм, а діаметр 0.620 — це 62 см). Задавати можна лише ті параметри, які ви хочете змінити — усі інші залишаться незмінними.
 
@@ -258,7 +268,7 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 
 python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fw 0.195 --rw 0.245 --fd 0.610 --rd 0.640
 ```
 
-Ви можете задавати ширину (--w, --fw, --rw), виліт (--y, --fy, --ry) окремо для передньої та задньої осей:
+Ви можете задавати ширину (`--w`, `--fw`, `--rw`), виліт (`--y`, `--fy`, `--ry`) окремо для передньої та задньої осей:
 
 Також зверніть увагу: якщо ви робите кілька правок по черзі, у другому запуску як вхідний файл потрібно передавати вже відредагований `GlobalB.lzc` (можна вказувати той самий файл як вхідний і вихідний), а не початковий `GlobalB_android.lzc`!
 
