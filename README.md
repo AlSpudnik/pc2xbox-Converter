@@ -56,6 +56,13 @@ Copy the generated `GEOMETRY.BIN` and `TEXTURES.BIN` into the corresponding car 
 
 ---
 
+## Known Issues & Limitations
+
+* **Memory Pool Limits on Heavy Tracks:** Unlike the PC version, which allocates RAM dynamically, the Xbox/Android engine uses fixed-size memory pools for vehicle geometry and textures. High-poly custom models or large textures (such as `1024x1024`) may occasionally exceed this buffer on memory-intensive tracks, causing the level to hang on loading or crash (even with an unmodified `GlobalB.lzc`).
+  * *Workaround:* Switch to another car for that specific race, or optimize polygon count and texture resolutions (`512x512` or `256x256`) when compiling the model.
+
+---
+
 ## Credits & License
 * Concept, reverse-engineering tests, and in-game validation by the repository author.
 * Scripts developed in collaboration with **AI (Google Gemini)**.
@@ -199,6 +206,11 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fy 0.79 -
 ```bash
 python3 pc2xbox_wheels.py edit GlobalB.lzc GlobalB.lzc FOCUS --fw 0.195 --rw 0.235 --d 0.620
 ```
+
+## Відомі проблеми та обмеження
+
+* **Ліміт пулів пам'яті на важких трасах:** На відміну від PC-версії, яка виділяє оперативну пам'ять динамічно, рушій Xbox/Android використовує фіксовані буфери пам'яті (memory pools) для геометрії та текстур авто. Високополігональні кастомні моделі або великі текстури (наприклад, `1024x1024`) на деяких ресурсоємних трасах кар'єри можуть перевищувати цей ліміт, що призводить до нескінченного завантаження або вильоту гри (навіть з оригінальним `GlobalB.lzc`).
+  * *Рішення:* Тимчасово оберіть інший автомобіль для проходження цієї траси або оптимізуйте кількість полігонів та роздільну здатність текстур (`512x512` чи `256x256`) під час експорту моделі.
 
 ## Авторство та ліцензія
 * Ідея, тестування дампів та перевірка в грі — автор репозиторію.
