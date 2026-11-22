@@ -115,13 +115,16 @@ You can set the width (--w, --fw, --rw) and offset (--y, --fy, --ry) separately 
 
 Also, please note: if you are making multiple edits in succession, for the second run you must use the already-edited `GlobalB.lzc` as the input file (you can specify the same file as both input and output), rather than the original `GlobalB_android.lzc`.
 
+**Step 1: Set different front and rear track widths:**
 
+```bash
+python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fy 0.79 --ry 0.83
+```
+**Step 2: In the already modified GlobalB.lzc, change only the width and diameter (the track widths will remain 0.79 and 0.83):**
 
-
-
-
-
-
+```bash
+python3 pc2xbox_wheels.py edit GlobalB.lzc GlobalB.lzc FOCUS --fw 0.195 --rw 0.235 --d 0.620
+```
 
 ## Known Issues & Limitations
 
@@ -265,7 +268,6 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fw 0.195 
 ```bash
 python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fy 0.79 --ry 0.83
 ```
-
 
 **Крок 2: у вже зміненому GlobalB.lzc міняємо тільки ширину та діаметр (колії залишаться 0.79 і 0.83):**
 
