@@ -15,7 +15,7 @@ A lightweight, zero-dependency Python toolset to convert custom car 3D models (`
   * Converts 32-byte PC texture format descriptors (`0x33310005`) into 60-byte Xbox NV2A descriptors (`DXT1` -> `0x0C`, `DXT3` -> `0x0E`, `DXT5` -> `0x0F`).
   * Updates Xbox memory pool flags (`0x00001000`), `mip0` sizes, and mipmap counts in `0x33310004`.
   * Packs raw DXT textures into valid **EA JDLZ** compressed streams required by the Xbox/Android engine.
-* **Editing vehicle wheel positions ('pc2xbox_wheels.py'):**
+* **Editing vehicle wheel positions (`pc2xbox_wheels.py`):**
   * A script based on the standard `argparse` module; it supports 3 convenient modes and requires no external libraries. 
   * View information (`info`): Displays the current wheel parameters for a specific vehicle. 
   * Copy settings (`copy`): Allows transferring an existing wheel configuration from a PC file (`GlobalB_pc.lzc`) to the Android/Xbox version (`GlobalB_android.lzc`). 
