@@ -82,6 +82,43 @@ Manually adjust the wheelbase (X), offset (Y), height (Z), and radius (R). Chang
 ```bash
 python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 --rx 1.346 --y 0.80 --z 0.0975 --w 0.215 --d 0.630
 ```
+Wheel Positioning (Wheelbase, Track, Height)
+
+* --fx – Front axle longitudinal position (front wheelbase, X)
+* --rx – Rear axle longitudinal position (rear wheelbase, X)
+* --y – Wheel offset (track width) for both axles simultaneously
+* --fy – Front track (front wheel offset, Y)
+* --ry – Rear track (rear wheel offset, Y)
+* --z – Vehicle ground clearance
+* --fz – Vertical height of the front wheels (Z)
+* --rz – Vertical height of the rear wheels (Z)
+
+Tire Width
+
+* --w – Wheel width for both axles simultaneously
+* --fw – Front wheel width
+* --rw – Rear wheel width
+
+Wheel Diameter and Radius (applies to all 4 wheels). The engine uses this value solely to calculate the suspension height above the ground; it does not alter the scale of the 3D model of the custom wheel itself.
+
+* --d – Outer wheel diameter (D)
+* --r – Wheel radius (R, half of the diameter)
+
+All values ​​are specified in meters (for example, a width of 0.215 equals 215 mm, and a diameter of 0.620 equals 62 cm). You only need to enter the parameters you wish to change; all others will remain unchanged.
+
+To make the rear wheels wider and larger in diameter (for example, for a rear-wheel-drive vehicle or a drag racing setup):
+
+```bash
+python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fw 0.195 --rw 0.245 --fd 0.610 --rd 0.640
+```
+You can set the width (--w, --fw, --rw) and offset (--y, --fy, --ry) separately for the front and rear axles:
+
+Also, please note: if you are making multiple edits in succession, for the second run you must use the already-edited `GlobalB.lzc` as the input file (you can specify the same file as both input and output), rather than the original `GlobalB_android.lzc`.
+
+
+
+
+
 
 
 
@@ -205,7 +242,7 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 
 * --fw - ширина передніх коліс
 * --rw - ширина задніх коліс
 
-Діаметр та радіус коліс (однакові для всіх 4 коліс). Рушій використовує це число лише для розрахунку висоти підвіски над дорогою, не змінюючи масштаб самої 3D-моделі тюнінгованого колеса.
+Діаметр та радіус коліс (однакові для всіх 4 коліс). Рушій використовує це число лише для розрахунку висоти підвіски над дорогою, не змінюючи масштаб самої 3D-моделі тюнінгованого колеса
 
 * --d - зовнішній діаметр коліс (D).
 * --r - радіус коліс (R, половина діаметра)
@@ -220,7 +257,7 @@ python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fw 0.195 
 
 Ви можете задавати ширину (--w, --fw, --rw), виліт (--y, --fy, --ry) окремо для передньої та задньої осей:
 
-Також зверніть увагу: якщо ви робите кілька правок по черзі, у другому запуску як вхідний файл потрібно передавати вже відредагований GlobalB.lzc (можна вказувати той самий файл як вхідний і вихідний), а не початковий GlobalB_android.lzc!
+Також зверніть увагу: якщо ви робите кілька правок по черзі, у другому запуску як вхідний файл потрібно передавати вже відредагований `GlobalB.lzc` (можна вказувати той самий файл як вхідний і вихідний), а не початковий `GlobalB_android.lzc`!
 
 
 **Крок 1: задаємо різну передню та задню колію:**
