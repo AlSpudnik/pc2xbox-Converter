@@ -154,7 +154,11 @@ python3 pc2xbox_wheels.py info GlobalB.lzc SKYLINE
 ```bash
 python3 pc2xbox_wheels.py copy GlobalB_pc.lzc GlobalB_android.lzc GlobalB.lzc FOCUS
 ```
+Вручну змінити базу (X), виліт (Y), висоту (Z) та радіус (R). Змінити діаметр і ширину однаково для всіх 4 коліс:
 
+```bash
+python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 --rx 1.346 --y 0.80 --z 0.0975 --w 0.215 --d 0.630
+```
 Позиція коліс (база, колія, висота)
 
 * --fx - передня вісь по довжині (база вперед, X)
@@ -178,14 +182,6 @@ python3 pc2xbox_wheels.py copy GlobalB_pc.lzc GlobalB_android.lzc GlobalB.lzc FO
 * --r - радіус коліс (R, половина діаметра)
 
 Усі значення вказуються в метрах (наприклад, ширина 0.215 — це 215 мм, а діаметр 0.620 — це 62 см). Задавати можна лише ті параметри, які ви хочете змінити — усі інші залишаться незмінними.
-
-
-Вручну змінити базу (X), виліт (Y), висоту (Z) та радіус (R):
-Змінити діаметр і ширину однаково для всіх 4 коліс:
-
-```bash
-python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 --rx 1.346 --y 0.80 --z 0.0975 --w 0.215 --d 0.630
-```
 
 Зробити задні колеса ширшими та більшими за діаметром (наприклад, для задньопривідного авто чи драг-конфігурації):
 
