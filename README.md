@@ -72,7 +72,16 @@ View the current coordinates of any vehicle (for example, SKYLINE):
 ```bash
 python3 pc2xbox_wheels.py info GlobalB.lzc SKYLINE
 ```
+Copy wheel settings from the PC version of GlobalB.lzc (e.g., FOCUS):
 
+```bash
+python3 pc2xbox_wheels.py copy GlobalB_pc.lzc GlobalB_android.lzc GlobalB.lzc FOCUS
+```
+Manually adjust the wheelbase (X), offset (Y), height (Z), and radius (R). Change the diameter and width for all 4 wheels simultaneously:
+
+```bash
+python3 pc2xbox_wheels.py edit GlobalB_android.lzc GlobalB.lzc FOCUS --fx 1.346 --rx 1.346 --y 0.80 --z 0.0975 --w 0.215 --d 0.630
+```
 
 
 
@@ -158,9 +167,9 @@ python3 pc2xbox_tex.py FOCUS_pc_TEXTURES.BIN TEXTURES.BIN FOCUS_android_TEXTURES
 
 ### 4. Редагування позицій коліс (`GlobalB.lzc`)
 
-1. 'info' — перегляд поточних координат усіх 4 коліс будь-якої машини у файлі.
-2. 'edit' — ручне налаштування бази (X), вильоту (Y), висоти (Z) та радіуса (R) без потреби в 'GlobalB_pc.lzc' (можна змінювати лише потрібні параметри, решта залишаться без змін).
-3. 'copy' — автоматичне перенесення всіх налаштувань коліс із 'GlobalB_pc.lzc' у 'GlobalB_android.lzc'.
+1. `info` — перегляд поточних координат усіх 4 коліс будь-якої машини у файлі.
+2. `edit` — ручне налаштування бази (X), вильоту (Y), висоти (Z) та радіуса (R) без потреби в `GlobalB_pc.lzc` (можна змінювати лише потрібні параметри, решта залишаться без змін).
+3. `copy` — автоматичне перенесення всіх налаштувань коліс із `GlobalB_pc.lzc` у `GlobalB_android.lzc`.
 
 Подивитися поточні координати будь-якого авто (наприклад, SKYLINE):
 
@@ -173,6 +182,7 @@ python3 pc2xbox_wheels.py info GlobalB.lzc SKYLINE
 ```bash
 python3 pc2xbox_wheels.py copy GlobalB_pc.lzc GlobalB_android.lzc GlobalB.lzc FOCUS
 ```
+
 Вручну змінити базу (X), виліт (Y), висоту (Z) та радіус (R). Змінити діаметр і ширину однаково для всіх 4 коліс:
 
 ```bash
