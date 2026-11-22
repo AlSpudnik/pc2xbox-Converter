@@ -15,7 +15,7 @@ A lightweight, zero-dependency Python toolset to convert custom car 3D models (`
   * Converts 32-byte PC texture format descriptors (`0x33310005`) into 60-byte Xbox NV2A descriptors (`DXT1` -> `0x0C`, `DXT3` -> `0x0E`, `DXT5` -> `0x0F`).
   * Updates Xbox memory pool flags (`0x00001000`), `mip0` sizes, and mipmap counts in `0x33310004`.
   * Packs raw DXT textures into valid **EA JDLZ** compressed streams required by the Xbox/Android engine.
-* **Editing vehicle wheel positions (pc2xbox_wheels.py):**
+* **Editing vehicle wheel positions ('pc2xbox_wheels.py'):**
   * A script based on the standard `argparse` module; it supports 3 convenient modes and requires no external libraries. 
   * View information (`info`): Displays the current wheel parameters for a specific vehicle. 
   * Copy settings (`copy`): Allows transferring an existing wheel configuration from a PC file (`GlobalB_pc.lzc`) to the Android/Xbox version (`GlobalB_android.lzc`). 
@@ -61,6 +61,16 @@ Copy the generated `GEOMETRY.BIN` and `TEXTURES.BIN` into the corresponding car 
 
 ---
 
+### 4. Editing Wheel Positions (`GlobalB.lzc`)
+
+1. `info` — view the current coordinates of all 4 wheels for any vehicle in the file.
+2. `edit` — manually adjust the wheelbase (X), track width (Y), height (Z), and radius (R) without needing `GlobalB_pc.lzc` (you can modify only the specific parameters you need; the rest will remain unchanged).
+3. `copy` — automatically transfer all wheel settings from `GlobalB_pc.lzc` to `GlobalB_android.lzc`.
+
+
+
+
+
 ## Known Issues & Limitations
 
 * **Memory Pool Limits on Heavy Tracks:** Unlike the PC version, which allocates RAM dynamically, the Xbox/Android engine uses fixed-size memory pools for vehicle geometry and textures. High-poly custom models or large textures (such as `1024x1024`) may occasionally exceed this buffer on memory-intensive tracks, causing the level to hang on loading or crash (even with an unmodified `GlobalB.lzc`).
@@ -69,7 +79,7 @@ Copy the generated `GEOMETRY.BIN` and `TEXTURES.BIN` into the corresponding car 
 ---
 
 ## Credits & License
-* Concept, reverse-engineering tests, and in-game validation by the repository author.
+* Concept, reverse-engineering tests, and in-game validation by Al Spudnik.
 * Scripts developed in collaboration with **AI (Google Gemini)**.
 * Licensed under the **MIT License**.
 
@@ -93,9 +103,9 @@ Copy the generated `GEOMETRY.BIN` and `TEXTURES.BIN` into the corresponding car 
   * Запаковує DXT-текстури у валідний стиснений потік **EA JDLZ**, необхідний для завантажувача текстур Xbox/Android.
 * **Редагування позицій коліс авто (pc2xbox_wheels.py):**
   * Скрипт на базі стандартного модуля argparse — підтримує 3 зручні режими без сторонніх бібліотек.
-  * Перегляд інформації (info): Виводить поточні параметри коліс для конкретного автомобіля.
-  * Копіювання налаштувань (copy): Дозволяє перенести готову конфігурацію коліс з PC-файлу GlobalB_pc.lzc у версію для Android/Xbox (GlobalB_android.lzc).
-  * Ручне редагування (edit): Надає можливість налаштовувати геометрію осей та коліс у метрах за допомогою параметрів колісної бази (--fx, --rx), ширини колії (--y, --fy, --ry), кліренсу (--z, --fz, --rz), ширини шин (--w, --fw, --rw) та фізичного діаметра/радіуса (--d, --r).
+  * Перегляд інформації ('info'): Виводить поточні параметри коліс для конкретного автомобіля.
+  * Копіювання налаштувань ('copy'): Дозволяє перенести готову конфігурацію коліс з PC-файлу GlobalB_pc.lzc у версію для Android/Xbox ('GlobalB_android.lzc').
+  * Ручне редагування ('edit'): Надає можливість налаштовувати геометрію осей та коліс у метрах за допомогою параметрів колісної бази ('--fx', '--rx'), ширини колії ('--y', '--fy', '--ry'), кліренсу ('--z', '--fz', '--rz'), ширини шин ('--w', '--fw', '--rw') та фізичного діаметра/радіуса ('--d', '--r').
 
 ## Вимоги
 * **Python 3.6+** (працює на Windows, Linux, macOS та в Termux на Android).
@@ -143,9 +153,9 @@ python3 pc2xbox_tex.py FOCUS_pc_TEXTURES.BIN TEXTURES.BIN FOCUS_android_TEXTURES
 
 ### 4. Редагування позицій коліс (`GlobalB.lzc`)
 
-1. info — перегляд поточних координат усіх 4 коліс будь-якої машини у файлі.
-2. edit — ручне налаштування бази (X), вильоту (Y), висоти (Z) та радіуса (R) без потреби в GlobalB_pc.lzc (можна змінювати лише потрібні параметри, решта залишаться без змін).
-3. copy — автоматичне перенесення всіх налаштувань коліс із GlobalB_pc.lzc у GlobalB_android.lzc.
+1. 'info' — перегляд поточних координат усіх 4 коліс будь-якої машини у файлі.
+2. 'edit' — ручне налаштування бази (X), вильоту (Y), висоти (Z) та радіуса (R) без потреби в 'GlobalB_pc.lzc' (можна змінювати лише потрібні параметри, решта залишаться без змін).
+3. 'copy' — автоматичне перенесення всіх налаштувань коліс із 'GlobalB_pc.lzc' у 'GlobalB_android.lzc'.
 
 
 Подивитися поточні координати будь-якого авто (наприклад, SKYLINE):
@@ -218,6 +228,6 @@ python3 pc2xbox_wheels.py edit GlobalB.lzc GlobalB.lzc FOCUS --fw 0.195 --rw 0.2
   * *Рішення:* Тимчасово оберіть інший автомобіль для проходження цієї траси або оптимізуйте кількість полігонів та роздільну здатність текстур (`512x512` чи `256x256`) під час експорту моделі.
 
 ## Авторство та ліцензія
-* Ідея, тестування дампів та перевірка в грі — автор репозиторію.
+* Ідея, тестування дампів та перевірка в грі — Al Spudnik.
 * Скрипти розроблено у співпраці з **AI (Google Gemini)**.
 * Розповсюджується за ліцензією **MIT**.
